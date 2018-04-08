@@ -110,6 +110,18 @@ test('object of objects', assertValidations(
     },
 ));
 
+test('objects can have required properties', assertValidations(
+    {
+        type: 'object',
+        properties: {
+            merp: { type: 'string' },
+            opt: { type: 'string' },
+        },
+        required: ['merp' as 'merp'],
+    },
+    { merp: 'hey' },
+));
+
 // -------
 // Strings
 // -------
