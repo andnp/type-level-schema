@@ -27,6 +27,9 @@
     "url": "https://github.com/andnp/type-level-schema/issues"
   },
   "homepage": "https://github.com/andnp/type-level-schema#readme",
+  "files": [
+    "src"
+  ],
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
