@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Typescript typings for JSON schemas",
   "main": "src/index.d.ts",
+  "types": "src/index.d.ts",
   "scripts": {
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "lint": "tslint --config tslint.json --project . --format stylish",
