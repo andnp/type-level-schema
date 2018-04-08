@@ -8,7 +8,8 @@
     "lint": "tslint --config tslint.json --project . --format stylish",
     "test": "jest",
     "tsc": "tsc",
-    "prepush": "npm run -s lint && npm test"
+    "prepush": "npm run -s lint && npm test",
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -62,9 +63,15 @@
     "typescript": "^2.8.1"
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "branch": "master"
   },
   "dependencies": {
+    "semantic-release": "^15.1.5",
     "simplytyped": "^1.0.3"
   }
 }
