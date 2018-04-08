@@ -36,6 +36,7 @@ type Schematize1<S extends SchemaDefinition> =
     S extends StringSchema ? SchematizeString<S> :
     S extends NumberSchema ? number :
     S extends BooleanSchema ? boolean :
+    S extends NullSchema ? null | undefined :
     S extends ArraySchema | TupleSchema ? SchematizeItems<S> :
     S extends ObjectSchema ? SchematizeObject<S> : any;
 
@@ -43,5 +44,6 @@ export type Schematize<S extends SchemaDefinition> =
     S extends StringSchema ? SchematizeString<S> :
     S extends NumberSchema ? number :
     S extends BooleanSchema ? boolean :
+    S extends NullSchema ? null | undefined :
     S extends ArraySchema | TupleSchema ? SchematizeItems<S> :
     S extends ObjectSchema ? SchematizeObject<S> : any;

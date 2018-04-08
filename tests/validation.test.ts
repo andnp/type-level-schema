@@ -26,6 +26,11 @@ test('boolean', assertValidations(
     false,
 ));
 
+test('null', assertValidations(
+    { type: 'null' },
+    null,
+));
+
 test('object', assertValidations(
     { type: 'object' },
     {},
