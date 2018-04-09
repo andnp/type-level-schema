@@ -12,7 +12,7 @@ export interface TypeDef<T extends Type> {
     type: T;
 }
 
-type SchemaDefinition =
+export type SchemaDefinition =
     StringSchema
     | NumberSchema
     | BooleanSchema
@@ -36,3 +36,5 @@ export type Schema = SchemaDefinition & Partial<{
     default: string;
     definitions: Record<string, SchemaDefinition>;
 }>;
+
+export * from './validation';
