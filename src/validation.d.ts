@@ -1,4 +1,4 @@
-import { Required, UnionizeTuple } from 'simplytyped';
+import { Required, UnionizeTuple, If, IntersectTuple, HasKey, Intersect, Vector } from 'simplytyped';
 import { StringSchema } from './defs/string';
 import { NumberSchema } from './defs/number';
 import { BooleanSchema } from './defs/boolean';
@@ -12,9 +12,9 @@ type SchematizeProperties<S extends ObjectSchema> = S['properties'] extends Reco
     ? { [K in keyof S['properties']]?: Schematize<S['properties'][K]> }
     : object;
 
-type MarkRequired<S extends ObjectSchema, P extends object> = S['required'] extends any[]
-    ? Required<P, UnionizeTuple<S['required']>>
-    : P;
+type MarkRequired<S extends ObjectSchema, P extends object> = If<HasKey<S, 'required'>,
+    S['required'] extends any[] ? Required<P, UnionizeTuple<S['required']>> : P,
+    P>;
 
 // validate object typed schemas
 type SchematizeObject<S extends ObjectSchema> = MarkRequired<S, SchematizeProperties<S>>;
@@ -27,14 +27,27 @@ type SchematizeItems<S extends TupleSchema | ArraySchema> = {
 }
 
 // validate string typed schemas
-type SchematizeString<S extends StringSchema> = S['enum'] extends string[]
-    ? UnionizeTuple<S['enum']>
-    : string;
+type SchematizeString<S extends StringSchema> = If<HasKey<S, 'enum'>,
+    S['enum'] extends string[] ? UnionizeTuple<S['enum']> : string,
+    string>;
 
-export type Schematize<S extends SchemaDefinition> =
+// validate allOf schemas
+type SchematizeIntersection<I> = I extends SchemaDefinition ? Schematize1<I> : any;
+type SchematizeAllOf<S extends AllOf> = If<HasKey<S, 'allOf'>,
+    S['allOf'] extends Vector<SchemaDefinition> ? SchematizeIntersection<IntersectTuple<S['allOf']>> : any,
+    any>;
+
+// This allows depth-1 recursion for anything that causes circular reference issues
+// for instance `allOf`
+type Schematize1<S extends SchemaDefinition> =
     S extends StringSchema ? SchematizeString<S> :
     S extends NumberSchema ? number :
     S extends BooleanSchema ? boolean :
     S extends NullSchema ? null | undefined :
     S extends ArraySchema | TupleSchema ? SchematizeItems<S> :
-    S extends ObjectSchema ? SchematizeObject<S> : any;
+    S extends ObjectSchema ? SchematizeObject<S> :
+        any;
+
+export type Schematize<S extends SchemaDefinition> =
+    S extends AllOf ? SchematizeAllOf<S> :
+        Schematize1<S>;

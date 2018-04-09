@@ -1,3 +1,5 @@
+import { Vector } from 'simplytyped';
+
 import { SchemaDefinition } from '../index';
 
 export type EnumSchema = Partial<{
@@ -5,7 +7,7 @@ export type EnumSchema = Partial<{
 }>;
 
 export interface AllOf {
-    allOf: SchemaDefinition[];
+    allOf: Vector<SchemaDefinition>;
 }
 
 export interface AnyOf {
