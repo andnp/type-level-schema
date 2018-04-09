@@ -88,6 +88,7 @@ test('object with properties', assertValidations(
             hey: { type: 'number' },
             value: { type: 'boolean' },
         },
+        required: [ 'merp' as 'merp', 'hey' as 'hey', 'value' as 'value' ],
     },
     {
         merp: 'hey',
@@ -105,8 +106,10 @@ test('object of objects', assertValidations(
                 properties: {
                     merp: { type: 'string' }
                 },
+                required: [ 'merp' as 'merp' ],
             },
         },
+        required: [ 'merp' as 'merp' ],
     },
     {
         merp: {
