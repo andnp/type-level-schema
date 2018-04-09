@@ -21,9 +21,9 @@ type SchematizeObject<S extends ObjectSchema> = MarkRequired<S, SchematizeProper
 
 // validate array typed schemas
 type SchematizeItems<S extends TupleSchema | ArraySchema> = {
-    [K: number]: S['items'] extends SchemaDefinition
-        ? Schematize<S['items']>
-        : any;
+    [K: number]: If<HasKey<S, 'items'>,
+        S['items'] extends SchemaDefinition ? Schematize<S['items']> : any,
+        any>;
 }
 
 // validate string typed schemas
