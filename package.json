@@ -10,8 +10,8 @@
     "test": "jest",
     "tsc": "tsc",
     "prepush": "npm run -s lint && npm test",
-    "prepublishOnly": "cp package.json src/package.json",
-    "release": "npm run prepublishOnly && npx semantic-release"
+    "beforePublish": "cp package.json src/package.json",
+    "release": "npm run beforePublish && npx semantic-release"
   },
   "repository": {
     "type": "git",
