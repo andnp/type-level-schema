@@ -11,7 +11,7 @@
     "tsc": "tsc",
     "prepush": "npm run -s lint && npm test",
     "prepublishOnly": "cp package.json src/package.json",
-    "release": "npx semantic-release"
+    "release": "npm run prepublishOnly && npx semantic-release"
   },
   "repository": {
     "type": "git",
