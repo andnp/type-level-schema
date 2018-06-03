@@ -10,7 +10,7 @@
     "test": "jest",
     "tsc": "tsc",
     "prepush": "npm run -s lint && npm test",
-    "beforePublish": "cp package.json src/package.json",
+    "beforePublish": "cp -r src/ ./",
     "release": "npm run beforePublish && npx semantic-release"
   },
   "repository": {
@@ -25,6 +25,12 @@
   ],
   "author": "Andy Patterson",
   "license": "MIT",
+  "files": [
+    "index.d.ts",
+    "schema.d.ts",
+    "validation.d.ts",
+    "defs/"
+  ],
   "bugs": {
     "url": "https://github.com/andnp/type-level-schema/issues"
   },
