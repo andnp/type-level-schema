@@ -10,7 +10,7 @@
     "test": "jest",
     "tsc": "tsc",
     "prepush": "npm run -s lint && npm test",
-    "beforePublish": "cp -r src/ ./",
+    "beforePublish": "mv src/* .",
     "release": "npm run beforePublish && npx semantic-release"
   },
   "repository": {
