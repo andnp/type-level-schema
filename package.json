@@ -74,13 +74,7 @@
     ]
   },
   "release": {
-    "branch": "master",
-    "publish": [
-      {
-        "path": "@semantic-release/npm",
-        "pkgRoot": "src"
-      }
-    ]
+    "branch": "master"
   },
   "dependencies": {
     "simplytyped": "^1.1.1"
