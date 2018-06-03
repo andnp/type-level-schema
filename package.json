@@ -2,15 +2,16 @@
   "name": "type-level-schema",
   "version": "0.0.0",
   "description": "Typescript typings for JSON schemas",
-  "main": "src/index.d.ts",
-  "types": "src/index.d.ts",
+  "main": "index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "lint": "tslint --config tslint.json --project . --format stylish",
     "test": "jest",
     "tsc": "tsc",
     "prepush": "npm run -s lint && npm test",
-    "release": "semantic-release"
+    "prepublishOnly": "cp package.json src/package.json",
+    "release": "npx semantic-release"
   },
   "repository": {
     "type": "git",
@@ -28,9 +29,6 @@
     "url": "https://github.com/andnp/type-level-schema/issues"
   },
   "homepage": "https://github.com/andnp/type-level-schema#readme",
-  "files": [
-    "src"
-  ],
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
@@ -59,7 +57,6 @@
     "husky": "^0.14.3",
     "jest": "^22.4.3",
     "jsonschema": "^1.2.4",
-    "semantic-release": "^15.1.5",
     "ts-jest": "^22.4.2",
     "ts-node": "^6.0.0",
     "tslint": "^5.9.1",
@@ -71,9 +68,15 @@
     ]
   },
   "release": {
-    "branch": "master"
+    "branch": "master",
+    "publish": [
+      {
+        "path": "@semantic-release/npm",
+        "pkgRoot": "src"
+      }
+    ]
   },
   "dependencies": {
-    "simplytyped": "^1.0.4"
+    "simplytyped": "^1.1.1"
   }
 }
