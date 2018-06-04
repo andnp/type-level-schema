@@ -27,7 +27,7 @@ export type SchemaDefinition =
     | Not
     | Ref;
 
-export type Schema = SchemaDefinition & Partial<{
+export interface SchemaMetaData {
     // top level schema options
     '$schema': string;
     id: string;
@@ -35,5 +35,6 @@ export type Schema = SchemaDefinition & Partial<{
     description: string;
     default: string;
     definitions: Record<string, SchemaDefinition>;
-}>;
+}
+export type Schema = SchemaDefinition & Partial<SchemaMetaData>;
 
