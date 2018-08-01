@@ -53,7 +53,8 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "testEnvironment": "node"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^7.0.0",
