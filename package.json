@@ -61,7 +61,7 @@
     "@types/jest": "^23.0.0",
     "ajv": "^6.4.0",
     "commitlint": "^7.0.0",
-    "husky": "^0.14.3",
+    "husky": "^1.0.0",
     "jest": "^22.4.3",
     "jsonschema": "^1.2.4",
     "ts-jest": "^23.0.0",
