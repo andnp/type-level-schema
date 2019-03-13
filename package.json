@@ -78,6 +78,6 @@
     "branch": "master"
   },
   "dependencies": {
-    "simplytyped": "^2.0.0"
+    "simplytyped": "^3.0.0"
   }
 }
