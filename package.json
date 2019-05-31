@@ -57,7 +57,7 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^7.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
     "@types/jest": "^24.0.0",
     "ajv": "^6.4.0",
     "commitlint": "^7.0.0",
