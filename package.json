@@ -64,7 +64,7 @@
     "husky": "^4.0.2",
     "jest": "^24.0.0",
     "jsonschema": "^1.2.4",
-    "ts-jest": "^24.0.0",
+    "ts-jest": "^25.1.0",
     "ts-node": "^8.0.3",
     "tslint": "^5.9.1",
     "typescript": "^2.8.1"
