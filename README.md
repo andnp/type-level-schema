@@ -1,7 +1,7 @@
 # type-level-schema
 
 [![Build Status](https://travis-ci.org/andnp/type-level-schema.svg?branch=master)](https://travis-ci.org/andnp/type-level-schema)
-[![Greenkeeper badge](https://badges.greenkeeper.io/andnp/type-level-schema.svg)](https://greenkeeper.io/)
+
 
 ## This library's goal
 
